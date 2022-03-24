@@ -10,5 +10,4 @@ public interface AuthService {
 	UserAuthRes authenticate(Credentials credentials);
 	UserDetails getUserDetails(String token);
 	void clearToken(String token);
-
 }
