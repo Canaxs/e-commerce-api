@@ -7,9 +7,11 @@ import javax.validation.constraints.Size;
 import com.commerce.annotation.UniqueUsername;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
+@EqualsAndHashCode(callSuper = true)
 public class Menu extends BaseEntity{
 
 	@NotNull

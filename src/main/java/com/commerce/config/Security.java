@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.commerce.exception.AuthEntryPoint;
 import com.commerce.service.UserAuthService;
+import com.commerce.utils.Enums;
 
 
 @EnableWebSecurity
@@ -32,12 +33,12 @@ public class Security extends WebSecurityConfigurerAdapter{
 		http.exceptionHandling().authenticationEntryPoint(new AuthEntryPoint());
 		
 		http.headers().frameOptions().disable();
-		
 		http
-			.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/api/1.0/friends").authenticated()
-			.and()
-			.authorizeRequests().anyRequest().permitAll();
+		.authorizeRequests()
+		.antMatchers(HttpMethod.GET, "/api/1.0/user")
+		.hasAnyAuthority("MOD")
+		.anyRequest()
+		.authenticated();
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		
