@@ -2,8 +2,8 @@ package com.commerce.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.commerce.request.Credentials;
-import com.commerce.request.UserAuthRes;
+import com.commerce.dto.Credentials;
+import com.commerce.dto.UserAuthRes;
 
 public interface AuthService {
 	

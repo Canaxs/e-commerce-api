@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.commerce.dto.Credentials;
+import com.commerce.dto.RoleRequest;
 import com.commerce.model.User;
 import com.commerce.model.UserRole;
 import com.commerce.repository.UserJpaRepository;
 import com.commerce.repository.UserRoleJpaRepository;
-import com.commerce.request.Credentials;
-import com.commerce.request.RoleRequest;
 import com.commerce.service.UserService;
 import com.commerce.utils.Enums;
 

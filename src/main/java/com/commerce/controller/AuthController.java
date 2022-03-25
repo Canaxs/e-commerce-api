@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.commerce.dto.Credentials;
+import com.commerce.dto.UserAuthRes;
 import com.commerce.model.User;
-import com.commerce.request.Credentials;
-import com.commerce.request.UserAuthRes;
 import com.commerce.service.AuthService;
 
 @RestController

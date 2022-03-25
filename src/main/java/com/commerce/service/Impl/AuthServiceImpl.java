@@ -9,15 +9,15 @@ import org.hibernate.proxy.HibernateProxy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.commerce.dto.Credentials;
+import com.commerce.dto.UserAuthRes;
+import com.commerce.dto.UserVM;
 import com.commerce.exception.AuthException;
 import com.commerce.model.Token;
 import com.commerce.model.User;
 import com.commerce.model.UserRole;
 import com.commerce.repository.TokenRepository;
 import com.commerce.repository.UserJpaRepository;
-import com.commerce.request.Credentials;
-import com.commerce.request.UserAuthRes;
-import com.commerce.request.UserVM;
 import com.commerce.service.AuthService;
 import com.commerce.utils.Enums;
 import com.commerce.utils.Enums.RoleType;

@@ -1,8 +1,8 @@
 package com.commerce.service;
 
+import com.commerce.dto.Credentials;
+import com.commerce.dto.RoleRequest;
 import com.commerce.model.User;
-import com.commerce.request.Credentials;
-import com.commerce.request.RoleRequest;
 
 public interface UserService {
 	

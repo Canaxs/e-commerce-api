@@ -1,4 +1,4 @@
-package com.commerce.request;
+package com.commerce.dto;
 
 
 import com.commerce.model.User;
