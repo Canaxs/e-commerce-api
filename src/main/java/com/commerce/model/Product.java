@@ -9,6 +9,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import com.commerce.annotation.UniqueUsername;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,6 +17,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = true)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class Product extends BaseEntity{
 	
 	@NotNull
@@ -33,5 +35,6 @@ public class Product extends BaseEntity{
 	
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)
+	@NotNull
 	UnderMenu underMenu;
 }

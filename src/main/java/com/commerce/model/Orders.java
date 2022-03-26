@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @Entity
 @EqualsAndHashCode(callSuper = true)
-public class Order extends BaseEntity{
+public class Orders extends BaseEntity{
 	
 	@ManyToOne
 	@OnDelete(action = OnDeleteAction.CASCADE)

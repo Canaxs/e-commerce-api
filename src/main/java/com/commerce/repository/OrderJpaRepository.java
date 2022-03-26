@@ -2,8 +2,8 @@ package com.commerce.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.commerce.model.Order;
+import com.commerce.model.Orders;
 
-public interface OrderJpaRepository extends JpaRepository<Order, Long>{
+public interface OrderJpaRepository extends JpaRepository<Orders, Long>{
 
 }
