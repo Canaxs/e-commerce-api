@@ -30,8 +30,8 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product updateProduct(long productId, ProductDto productDto) {
-		UnderMenu underMenu = underMenuJpaRepository.findByid(productDto.getUnderMenuId());
-		Product product = modelMapper.map(productDto, Product.class);
+		UnderMenu underMenu = underMenuJpaRepository.getById(productDto.getUnderMenuId());
+		Product product = productDto.getProduct();
 		try {
 			
 			if(underMenu != null && productJpaRepository.existsById(productId)) {
@@ -63,12 +63,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product createProduct(ProductDto productDto) {
 		UnderMenu underMenu = underMenuJpaRepository.findByid(productDto.getUnderMenuId());
-		Product product = modelMapper.map(productDto, Product.class);
+		Product product = productDto.getProduct();
 		try {
 		
 			if(underMenu != null) {
 				product.setUnderMenu(underMenu);
-				
 			}
 			else {
 				return null;

@@ -11,11 +11,13 @@ import org.hibernate.annotations.OnDeleteAction;
 import com.commerce.annotation.UniqueUsername;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
+@Builder
 @EqualsAndHashCode(callSuper = true)
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class Product extends BaseEntity{
