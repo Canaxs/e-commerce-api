@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commerce.dto.ProductDto;
-import com.commerce.model.Product;
+import com.commerce.model.panel.Product;
 import com.commerce.service.ProductService;
 
 @RestController

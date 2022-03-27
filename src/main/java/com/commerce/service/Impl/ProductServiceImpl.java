@@ -3,35 +3,38 @@ package com.commerce.service.Impl;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.commerce.converter.ProductConverter;
 import com.commerce.dto.ProductDto;
-import com.commerce.model.Product;
-import com.commerce.model.UnderMenu;
+import com.commerce.model.panel.Product;
+import com.commerce.model.panel.UnderMenu;
 import com.commerce.repository.ProductJpaRepository;
 import com.commerce.repository.UnderMenuJpaRepository;
 import com.commerce.service.ProductService;
+import com.commerce.specifications.ProductSpecifications;
 
 @Service
 public class ProductServiceImpl implements ProductService{
 	
 	ProductJpaRepository productJpaRepository;
 	UnderMenuJpaRepository underMenuJpaRepository;
+	ProductConverter productConverter;
 	
-	ModelMapper modelMapper;
 
 	public ProductServiceImpl(ProductJpaRepository productJpaRepository,
-			UnderMenuJpaRepository underMenuJpaRepository,ModelMapper modelMapper) {
+			UnderMenuJpaRepository underMenuJpaRepository,ProductConverter productConverter) {
 		super();
 		this.productJpaRepository = productJpaRepository;
+		this.productConverter = productConverter;
 		this.underMenuJpaRepository = underMenuJpaRepository;
-		this.modelMapper = modelMapper;
 	}
 
 	@Override
 	public Product updateProduct(long productId, ProductDto productDto) {
 		UnderMenu underMenu = underMenuJpaRepository.getById(productDto.getUnderMenuId());
-		Product product = productDto.getProduct();
+		Product product = productConverter.getProduct(productDto);
 		try {
 			
 			if(underMenu != null && productJpaRepository.existsById(productId)) {
@@ -62,8 +65,8 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product createProduct(ProductDto productDto) {
-		UnderMenu underMenu = underMenuJpaRepository.findByid(productDto.getUnderMenuId());
-		Product product = productDto.getProduct();
+		UnderMenu underMenu = underMenuJpaRepository.getById(productDto.getUnderMenuId());
+		Product product = productConverter.getProduct(productDto);
 		try {
 		
 			if(underMenu != null) {
@@ -81,8 +84,9 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<Product> getListProduct(long underMenuId) {
-		UnderMenu underMenu = underMenuJpaRepository.findByid(underMenuId);
-		List<Product> list = productJpaRepository.findAllByUnderMenu(underMenu);
+		UnderMenu underMenu = underMenuJpaRepository.getById(underMenuId);
+		Specification<Product> product = Specification.where(ProductSpecifications.findAllByUnderMenu(underMenu));
+		List<Product> list = productJpaRepository.findAll(product);
 		return list;
 	}
 

@@ -6,7 +6,4 @@ import com.commerce.model.User;
 import com.commerce.model.UserRole;
 
 public interface UserRoleJpaRepository extends JpaRepository<UserRole,Long>{
-	
-	UserRole findByUserId(long userId);
-
 }

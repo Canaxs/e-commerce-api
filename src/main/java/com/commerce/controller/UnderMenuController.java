@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.commerce.dto.UnderMenuDto;
 import com.commerce.dto.UnderMenuDtoUpdate;
-import com.commerce.model.UnderMenu;
+import com.commerce.model.panel.UnderMenu;
 import com.commerce.service.UnderMenuService;
 
 @RestController

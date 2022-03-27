@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commerce.dto.MenuDto;
-import com.commerce.model.Menu;
+import com.commerce.model.panel.Menu;
 import com.commerce.service.MenuService;
 
 @RestController

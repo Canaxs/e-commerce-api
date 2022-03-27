@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
 import com.commerce.dto.MenuDto;
-import com.commerce.model.Menu;
+import com.commerce.model.panel.Menu;
 import com.commerce.repository.MenuJpaRepository;
 import com.commerce.service.MenuService;
 
@@ -32,6 +31,7 @@ public class MenuServiceImpl implements MenuService{
 	@Override
 	public Menu deleteMenu(MenuDto menuDto) {
 		Menu menu = menuJpaRepository.findBymenuName(menuDto.getMenuName());
+		System.out.println(menu);
 		try {
 			menuJpaRepository.delete(menu);
 		}

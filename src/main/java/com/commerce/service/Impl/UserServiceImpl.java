@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User roleChange(String username, RoleRequest roleRequest) {
 		User user = userJpaRepository.findByUsername(username);
-		UserRole userRole2 = userRoleJpaRepository.findByUserId(user.getId());
+		UserRole userRole2 = userRoleJpaRepository.getById(user.getId());
 		userRole2.setUser(user);
 		switch (roleRequest.getRole().toUpperCase()) {
 		case "ADMIN":

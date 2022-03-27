@@ -1,17 +1,13 @@
 package com.commerce.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import com.commerce.model.Menu;
-import com.commerce.model.UnderMenu;
+import com.commerce.model.panel.Menu;
+import com.commerce.model.panel.UnderMenu;
 
-public interface UnderMenuJpaRepository extends JpaRepository<UnderMenu, Long>{
+public interface UnderMenuJpaRepository extends JpaRepository<UnderMenu, Long>,JpaSpecificationExecutor<UnderMenu>{
 	
 	UnderMenu findByUnderMenuNameAndMenu(String underMenuName,Menu menu);
 
-	List<UnderMenu> findAllByMenu(Menu menu);
-	
-	UnderMenu findByid(long id);
 }

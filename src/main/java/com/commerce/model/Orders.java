@@ -6,6 +6,8 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.commerce.model.panel.Product;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

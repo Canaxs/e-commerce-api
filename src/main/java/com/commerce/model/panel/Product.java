@@ -1,4 +1,4 @@
-package com.commerce.model;
+package com.commerce.model.panel;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -9,17 +9,21 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import com.commerce.annotation.UniqueUsername;
+import com.commerce.model.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 public class Product extends BaseEntity{
 	
 	@NotNull

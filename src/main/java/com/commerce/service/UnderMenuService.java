@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.commerce.dto.UnderMenuDto;
 import com.commerce.dto.UnderMenuDtoUpdate;
-import com.commerce.model.UnderMenu;
+import com.commerce.model.panel.UnderMenu;
 
 public interface UnderMenuService {
 

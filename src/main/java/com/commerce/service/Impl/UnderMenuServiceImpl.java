@@ -2,15 +2,17 @@ package com.commerce.service.Impl;
 
 import java.util.List;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.commerce.dto.UnderMenuDto;
 import com.commerce.dto.UnderMenuDtoUpdate;
-import com.commerce.model.Menu;
-import com.commerce.model.UnderMenu;
+import com.commerce.model.panel.Menu;
+import com.commerce.model.panel.UnderMenu;
 import com.commerce.repository.MenuJpaRepository;
 import com.commerce.repository.UnderMenuJpaRepository;
 import com.commerce.service.UnderMenuService;
+import com.commerce.specifications.UnderMenuSpecifications;
 
 @Service
 public class UnderMenuServiceImpl implements UnderMenuService{
@@ -73,7 +75,8 @@ public class UnderMenuServiceImpl implements UnderMenuService{
 	@Override
 	public List<UnderMenu> getListMenu(String menuName) {
 		Menu menu = menuJpaRepository.findBymenuName(menuName);
-		List<UnderMenu> menu2 = underMenuJpaRepository.findAllByMenu(menu);
+		Specification<UnderMenu> undermenu = Specification.where(UnderMenuSpecifications.findAllByMenu(menu));
+		List<UnderMenu> menu2 = underMenuJpaRepository.findAll(undermenu);
 		return menu2;
 	}
 

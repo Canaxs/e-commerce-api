@@ -3,7 +3,7 @@ package com.commerce.service;
 import java.util.List;
 
 import com.commerce.dto.ProductDto;
-import com.commerce.model.Product;
+import com.commerce.model.panel.Product;
 
 public interface ProductService {
 
