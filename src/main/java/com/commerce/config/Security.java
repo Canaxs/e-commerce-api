@@ -37,7 +37,7 @@ public class Security extends WebSecurityConfigurerAdapter{
 		.authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/api/1.0/user")
 		.hasAnyAuthority("MOD")
-		.antMatchers(HttpMethod.POST,"/api/1.0/user/create")
+		.antMatchers("/api/1.0/user")
 		.authenticated();
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

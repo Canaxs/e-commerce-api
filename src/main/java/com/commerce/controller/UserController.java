@@ -27,7 +27,7 @@ public class UserController {
 		return service.create(credentials);
 	}
 	
-	@PostMapping("/{username}")
+	@PostMapping("/role/{username}")
 	private User userRoleChange(@PathVariable String username,@RequestBody RoleRequest roleRequest) {
 		return service.roleChange(username,roleRequest);
 	}

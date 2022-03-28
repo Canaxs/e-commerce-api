@@ -2,18 +2,16 @@ package com.commerce.service.Impl;
 
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.commerce.converter.ProductConverter;
 import com.commerce.dto.ProductDto;
 import com.commerce.model.panel.Product;
+import static com.commerce.specifications.ProductSpecifications.*;
 import com.commerce.model.panel.UnderMenu;
 import com.commerce.repository.ProductJpaRepository;
 import com.commerce.repository.UnderMenuJpaRepository;
 import com.commerce.service.ProductService;
-import com.commerce.specifications.ProductSpecifications;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -85,8 +83,7 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<Product> getListProduct(long underMenuId) {
 		UnderMenu underMenu = underMenuJpaRepository.getById(underMenuId);
-		Specification<Product> product = Specification.where(ProductSpecifications.findAllByUnderMenu(underMenu));
-		List<Product> list = productJpaRepository.findAll(product);
+		List<Product> list = productJpaRepository.findAll(findAllByUnderMenu(underMenu));
 		return list;
 	}
 
