@@ -85,7 +85,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Run the project through eclipse with spring run Application. You need to create a database named twitter in MySQL database. You can test the program with PostMan.
+Run the project through eclipse with spring run Application. You need to create a database named commerce in MySQL database. You can test the program with PostMan.
 
 
 ## Usage
